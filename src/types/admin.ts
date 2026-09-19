@@ -11,18 +11,3 @@ export interface AdminSession {
     user: Admin;
     expiresAt: number;
 }
-
-export type Section =
-    | 'languages'
-    | 'exercises'
-    | 'categories'
-    | 'content'
-    | 'words'
-    | 'sentences'
-    | 'texts';
-
-export interface Language {
-    language_id: number;
-    code: string;
-    name: string;
-}

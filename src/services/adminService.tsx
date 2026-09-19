@@ -1,5 +1,9 @@
 import axios from 'axios';
-import type { Language } from '../types/types';
+import type { Language } from '../types/language';
+import type { Category } from '../types/category';
+import type { Exercise } from '../types/exercise';
+import type { Word } from '../types/word';
+import type { Sentence } from '../types/sentence';
 
 let token: string | null = null;
 
@@ -42,10 +46,38 @@ const getLanguages = () => {
         .then(response => response.data)
 }
 
+const getCategories = () => {
+    return axios
+        .get<Category[]>('/categories', makeHeader())
+        .then(response => response.data)
+}
+
+const getExercises = () => {
+    return axios
+        .get<Exercise[]>('/exercises', makeHeader())
+        .then(response => response.data)
+}
+
+const getWords = () => {
+    return axios
+        .get<Word[]>('/words', makeHeader())
+        .then(response => response.data)
+}
+
+const getSentences = () => {
+    return axios
+        .get<Sentence[]>('/sentences', makeHeader())
+        .then(response => response.data)
+}
+
 export default {
     postLogin,
+    setToken,
     getLanguages,
-    setToken
+    getCategories,
+    getExercises,
+    getWords,
+    getSentences
 }
 
 // const getAllCartItems = () => {

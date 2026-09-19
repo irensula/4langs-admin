@@ -41,6 +41,10 @@ export default defineConfig({
       '/texts': {
         target: 'http://localhost:3001',
         changeOrigin: true,
+      },
+      '/notifications': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
       }
     }
   }

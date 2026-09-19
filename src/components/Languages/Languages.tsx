@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import adminService from '../../services/adminService';
-import type { Language } from '../../types/types';
+import type { Language } from '../../types/language';
 
 const Languages = () => {
     const [languages, setLanguages] = useState<Language[]>([]);
@@ -21,7 +21,8 @@ const Languages = () => {
             <ul>
                 {languages.map(language => (
                     <li key={language.language_id}>
-                        {language.name}
+                        <p>{language.code}</p>
+                        <p>{language.name}</p>
                     </li>
                 ))}
             </ul>

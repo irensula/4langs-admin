@@ -1,6 +1,6 @@
 import { useState } from "react";
 import adminService from '../../services/adminService';
-import type { AdminSession } from '../../types/types';
+import type { AdminSession } from '../../types/admin';
 
 interface LoginProps {
     onLogin: () => void;
@@ -26,11 +26,11 @@ const Login = ({ onLogin }: LoginProps) => {
                     ...data,
                     expiresAt: Date.now() + 1000 * 60 * 60
                 };
+                adminService.setToken(data.token);
+                onLogin();
                 setMessage(`Tervetuloa, ${admindata.user.username}!`);
                 // setMessageType('success');
                 window.localStorage.setItem('admin', JSON.stringify(admindata)); 
-
-                onLogin();
             })
             .catch(() => {
                 setMessage("Kirjautuminen epäonnistui. Tarkista sähköposti tai salasana.");

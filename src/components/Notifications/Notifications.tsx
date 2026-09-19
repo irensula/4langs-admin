@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import adminService from '../../services/adminService';
 import type { Language } from '../../types/language';
 
-const Content = () => {
+const Notifications = () => {
     const [languages, setLanguages] = useState<Language[]>([]);
 
     useEffect(() => {
@@ -29,4 +29,4 @@ const Content = () => {
     )
 }
 
-export default Content;
+export default Notifications;

@@ -1,4 +1,5 @@
 import type { Section } from "../../types/section";
+import './Sidebar.css';
 
 interface SidebarProps {
     activeSection: Section;
@@ -13,6 +14,7 @@ const Sidebar = ({ activeSection, onSectionChange }: SidebarProps) => {
         { id: 'content', label: 'Content' },
         { id: 'words', label: 'Words' },
         { id: 'sentences', label: 'Sentences' },
+        { id: 'texts', label: 'Texts' },
         { id: 'notifications', label: 'Notifications' }
     ];
 

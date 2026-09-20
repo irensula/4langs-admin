@@ -7,6 +7,7 @@ import Sentences from "../Sentences/Sentences";
 import Texts from "../Texts/Texts";
 import Notifications from "../Notifications/Notifications";
 import type { Section } from "../../types/section";
+import './MainContent.css';
 
 interface MainContentProps {
     section: Section;
@@ -14,7 +15,7 @@ interface MainContentProps {
 
 const MainContent = ({ section }: MainContentProps) => {
     return (
-        <main className="main-content">
+        <main className="main_content">
             {section === 'languages' && <Languages />}
             {section === 'categories' && <Categories />}
             {section === 'exercises' && <Exercises />}

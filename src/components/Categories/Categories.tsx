@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import adminService from '../../services/adminService';
 import type { Category } from '../../types/category';
 import { formatDate } from '../../utils/formateDate';
+import './Categories.css';
 
 const Categories = () => {
     const [categories, setCategories] = useState<Category[]>([]);
@@ -17,21 +18,35 @@ const Categories = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Categories</h2>
-            <ul>
-                {categories.map(category => (
-                    <li key={category.category_id}>
-                    <p>{category.sort_order}</p>
-                    <p>{category.slug}</p>
-                    <p>{category.image_path}</p>
-                    <p>{category.language}</p>
-                    <p>{category.translation}</p>
-                    <p>{formatDate(category.created_at)}</p>
-                    <p>{formatDate(category.updated_at)}</p>
-                </li>
-                ))}
-            </ul>
+        <div className='content'>
+            <h2 className='title'>Categories</h2>
+            <table className="categories__table">
+                <thead>
+                    <tr>
+                        <th>Order</th>
+                        <th>Slug</th>
+                        <th>Image</th>
+                        <th>Language</th>
+                        <th>Translation</th>
+                        <th>Created</th>
+                        <th>Updated</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {categories.map(category => (
+                        <tr key={category.category_id}>
+                            <td>{category.sort_order}</td>
+                            <td>{category.slug}</td>
+                            <td>{category.image_path}</td>
+                            <td>{category.language}</td>
+                            <td>{category.translation}</td>
+                            <td>{formatDate(category.created_at)}</td>
+                            <td>{formatDate(category.updated_at)}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }

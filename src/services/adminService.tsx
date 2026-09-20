@@ -4,6 +4,8 @@ import type { Category } from '../types/category';
 import type { Exercise } from '../types/exercise';
 import type { Word } from '../types/word';
 import type { Sentence } from '../types/sentence';
+import type { Text } from '../types/text';
+import type { Notification } from '../types/notification';
 
 let token: string | null = null;
 
@@ -70,6 +72,18 @@ const getSentences = () => {
         .then(response => response.data)
 }
 
+const getTexts = () => {
+    return axios
+        .get<Text[]>('/texts', makeHeader())
+        .then(response => response.data)
+}
+
+const getNotifications = () => {
+    return axios
+        .get<Notification[]>('/notifications', makeHeader())
+        .then(response => response.data)
+}
+
 export default {
     postLogin,
     setToken,
@@ -77,7 +91,9 @@ export default {
     getCategories,
     getExercises,
     getWords,
-    getSentences
+    getSentences,
+    getTexts,
+    getNotifications
 }
 
 // const getAllCartItems = () => {

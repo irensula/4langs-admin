@@ -1,27 +1,34 @@
 import { useEffect, useState } from 'react';
 import adminService from '../../services/adminService';
-import type { Language } from '../../types/language';
+import type { Text } from '../../types/text';
 
 const Texts = () => {
-    const [languages, setLanguages] = useState<Language[]>([]);
+    const [texts, setTexts] = useState<Text[]>([]);
 
     useEffect(() => {
-        adminService.getLanguages()
+        adminService.getTexts()
             .then(data => {
-                setLanguages(data);
+                setTexts(data);
             })
             .catch(error => {
-                console.error('Error fetching languages: ', error);
+                console.error('Error fetching texts: ', error);
             });
     }, []);
 
     return (
         <div>
-            <h2>Languages</h2>
+            <h2>Texts</h2>
             <ul>
-                {languages.map(language => (
-                    <li key={language.language_id}>
-                        {language.name}
+                {texts.map(text => (
+                    <li key={text.content_id}>
+                        <p>{text.language}</p>
+                        <p>{text.title}</p>
+                        <p>{text.value}</p>
+                        <p>{text.sound_path}</p>
+                        <p>{text.image_path}</p>
+                        <p>{text.category}</p>
+                        <p>{text.created_at}</p>
+                        <p>{text.updated_at}</p>
                     </li>
                 ))}
             </ul>

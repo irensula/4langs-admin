@@ -1,27 +1,32 @@
 import { useEffect, useState } from 'react';
 import adminService from '../../services/adminService';
-import type { Language } from '../../types/language';
+import type { Notification } from '../../types/notification';
 
 const Notifications = () => {
-    const [languages, setLanguages] = useState<Language[]>([]);
+    const [notifications, setNotifications] = useState<Notification[]>([]);
 
     useEffect(() => {
-        adminService.getLanguages()
+        adminService.getNotifications()
             .then(data => {
-                setLanguages(data);
+                setNotifications(data);
             })
             .catch(error => {
-                console.error('Error fetching languages: ', error);
+                console.error('Error fetching notifications: ', error);
             });
     }, []);
 
     return (
         <div>
-            <h2>Languages</h2>
+            <h2>Notifications</h2>
             <ul>
-                {languages.map(language => (
-                    <li key={language.language_id}>
-                        {language.name}
+                {notifications.map(notification => (
+                    <li key={notification.notification_id}>
+                        <p>{notification.user_id}</p>
+                        <p>{notification.type}</p>
+                        <p>{notification.title}</p>
+                        <p>{notification.body}</p>
+                        <p>{notification.data.version}</p>
+                        <p>{notification.created_at}</p>
                     </li>
                 ))}
             </ul>

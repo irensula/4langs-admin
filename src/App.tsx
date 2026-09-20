@@ -4,6 +4,7 @@ import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import MainContent from './components/MainContent/MainContent';
 import type { Section } from './types/section';
+import './App.css';
 
 function App() {
   const [section, setSection] = useState<Section>('languages');
@@ -16,13 +17,13 @@ function App() {
   }
 
   return (
-    <>
-      <div>
-        <Header />
+    <div className='container'>
+      <Header />
+      <div className='main_container'>
         <Sidebar activeSection={section} onSectionChange={setSection} />
         <MainContent section={section} />
-      </div>      
-    </>
+      </div>
+    </div>      
   )
 }
 

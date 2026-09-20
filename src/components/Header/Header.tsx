@@ -1,6 +1,10 @@
+import './Header.css';
+
 const Header = () => {
     return (
-        <div>Admin dashboard</div>
+        <div className="header">
+            4Langs Admin dashboard
+        </div>
     )
 }
 

@@ -5,11 +5,14 @@
   --accent-text: #a7a5a6;
   --white: #ffffff;
   --accent: #7ed0f8;
-  --accent-light: #7ecff863;
+  --accent-light: #c4ecff;
   --border: #d1d0d1;
+  --success: #2f9d51;
+  --error: #da012c;
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
+  
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
 }

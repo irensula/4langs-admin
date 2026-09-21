@@ -1,4 +1,5 @@
 import axios from 'axios';
+import type { AdminSession } from '../types/admin';
 import type { Language } from '../types/language';
 import type { Category } from '../types/category';
 import type { Exercise } from '../types/exercise';
@@ -6,6 +7,7 @@ import type { Word } from '../types/word';
 import type { Sentence } from '../types/sentence';
 import type { Text } from '../types/text';
 import type { Notification } from '../types/notification';
+import type { ContentWithTranslations } from '../types/content';
 
 let token: string | null = null;
 
@@ -25,9 +27,37 @@ interface LoginResponse {
     }
 }
 
-const setToken = (newToken: string): void => {
-  token = newToken;
-}
+const setToken = (newToken: string): void => { 
+    token = newToken; 
+};
+
+const getToken = (): string | null => { 
+    return token; 
+};
+
+const restoreSession = (): AdminSession | null => {
+    const storedAdmin = localStorage.getItem('admin');
+
+    if (!storedAdmin) {
+        return null;
+    }
+
+    const session: AdminSession = JSON.parse(storedAdmin);
+
+    if (Date.now() >= session.expiresAt) {
+        logout();
+        return null;
+    }
+
+    token = session.token;
+
+    return session;
+};
+
+const logout = (): void => {
+    token = null;
+    localStorage.removeItem('admin');
+};
 
 const makeHeader = () => {
     if (token) {
@@ -84,16 +114,29 @@ const getNotifications = () => {
         .then(response => response.data)
 }
 
+const getCategoryContent = ( categoryId: number ) => {
+    return axios
+        .get<ContentWithTranslations[]>(
+            `/categories/${categoryId}/content`, 
+            makeHeader()
+        )
+        .then(response => response.data) 
+}
+
 export default {
     postLogin,
     setToken,
+    getToken,
+    restoreSession,
+    logout,
     getLanguages,
     getCategories,
     getExercises,
     getWords,
     getSentences,
     getTexts,
-    getNotifications
+    getNotifications,
+    getCategoryContent
 }
 
 // const getAllCartItems = () => {

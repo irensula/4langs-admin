@@ -1,0 +1,22 @@
+.content_m {
+    width: 70%;
+    min-width: 70%;
+}
+
+.categories__table {
+    width: 100%;
+}
+.title {
+    padding-left: 15px;
+}
+@media (max-width: 2000px) {
+    .content {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1600px) {
+    .content {
+        width: 100%;
+    }
+}

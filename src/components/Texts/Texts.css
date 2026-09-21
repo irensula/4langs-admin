@@ -1,0 +1,17 @@
+.content {
+    width: 90%;
+    min-width: 90%;
+}
+
+.texts__table {
+    width: 100%;
+}
+.title {
+    padding-left: 15px;
+}
+
+@media (max-width: 1600px) {
+    .content {
+        width: 100%;
+    }
+}

@@ -1,0 +1,90 @@
+.category__table__title {
+    background-color: var(--accent-bg);
+    border-bottom: 1px solid var(--border);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: 15px 25px;
+    color: var(--accent-text);
+    text-transform: uppercase;
+    font-family: var(--sans);
+    font-size: 14px;
+}
+.content-section {
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    margin: 30px 0;
+}
+.content-table-wrapper {
+    background-color: var(--white);
+}
+.content-table__image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.edit__button {
+    margin-right: 15px;
+    color: var(--accent-text);
+    border: none;
+    padding: 5px 20px;
+    background-color: var(--accent-bg);
+    border-radius: 7px;
+    border: 1px solid var(--border);
+
+    display: flex;
+    column-gap: 5px;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+} 
+.edit__button:hover {
+    color: var(--accent-bg);
+    background-color: var(--accent-text);
+    border-color: var(--accent-text);
+}
+
+.delete__button {
+    color: var(--white);
+    border: 1px solid var(--error);
+    padding: 5px 15px;
+    background-color: var(--error);
+    border-radius: 7px;
+
+    display: flex;
+    column-gap: 5px;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.delete__button:hover {
+    background-color: var(--white);
+    color: var(--error);
+}
+
+.content-table__actions {
+    white-space: nowrap;
+}
+
+.content-table__actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.content-table__answer {
+    margin-top: 15px;
+}
+.answer__span {
+    font-style: italic;
+}
+.content-table__sound {
+    font-size: 20px;
+    color: var(--accent-text);
+    margin: 15px 0;
+}
+.content-table__sound:hover {
+    color: grey;
+}
+.content-table__title {
+    font-weight: 600;
+}
+.content-table__translation {
+    line-height: 28px;
+}

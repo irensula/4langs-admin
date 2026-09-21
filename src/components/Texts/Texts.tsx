@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import adminService from '../../services/adminService';
 import type { Text } from '../../types/text';
+import './Texts.css';
 
 const Texts = () => {
     const [texts, setTexts] = useState<Text[]>([]);
@@ -16,22 +17,40 @@ const Texts = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Texts</h2>
-            <ul>
-                {texts.map(text => (
-                    <li key={text.content_id}>
-                        <p>{text.language}</p>
-                        <p>{text.title}</p>
-                        <p>{text.value}</p>
-                        <p>{text.sound_path}</p>
-                        <p>{text.image_path}</p>
-                        <p>{text.category}</p>
-                        <p>{text.created_at}</p>
-                        <p>{text.updated_at}</p>
-                    </li>
-                ))}
-            </ul>
+        <div className='content'>
+            <h2 className='title'>Texts</h2>
+            <div className='content-section'>
+                <h3 className='category__table__title'>Texts</h3>
+                <table className="texts__table content-table-wrapper">
+                    <thead>
+                        <tr>
+                            <th>Language</th>
+                            <th>Title</th>
+                            <th>Value</th>
+                            <th>Sound path</th>
+                            <th>Image path</th>
+                            <th>Category</th>
+                            <th>Created at</th>
+                            <th>Updated at</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {texts.map(text => (
+                            <tr key={text.content_id}>
+                                <td>{text.language}</td>
+                                <td>{text.title}</td>
+                                <td>{text.value}</td>
+                                <td>{text.sound_path}</td>
+                                <td>{text.image_path}</td>
+                                <td>{text.category}</td>
+                                <td>{text.created_at}</td>
+                                <td>{text.updated_at}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

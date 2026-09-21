@@ -6,8 +6,30 @@
     text-transform: uppercase;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     color: var(--accent);
     background-color: var(--accent-bg);
     border: 1px solid var(--border);
-    padding-left: 60px;
+    padding: 0 100px 0 60px;
+}
+.logout__button {
+    border-color: transparent;
+    border-radius: 10px;
+    background-color: var(--bg);
+    padding: 10px 25px;
+    color: var(--accent-text);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.logout__button:hover {
+    background-color: var(--border);
+    color: var(--bg);
+}
+.logout__button:active {
+    background-color: var(--accent-text);
+    color: var(--bg);
 }

@@ -1,0 +1,17 @@
+.message__box {
+    margin: 10px 0;
+    display: flex;
+}
+.message__icon {
+    font-size: 20px;
+    color: var(--error);
+}
+.message {
+    font-family: var(--sans);
+}
+.message.message--error {
+    color: var(--error);
+}
+.message.message--success {
+    color: var(--success);
+}

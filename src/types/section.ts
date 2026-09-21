@@ -6,4 +6,5 @@ export type Section =
     | 'words'
     | 'sentences'
     | 'texts'
-    | 'notifications';
+    | 'notifications'
+    | 'add content';
